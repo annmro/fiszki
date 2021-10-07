@@ -1,0 +1,45 @@
+
+.app {
+  color: #222;
+}
+
+
+div .app {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  width: 100%;
+  margin: 0 auto;
+  color: #222;
+}
+
+/* header {
+  flex-basis: 20vh;
+} */
+
+
+.page {
+  margin: 40px 60px;
+
+}
+
+main {
+  flex-grow: 1;
+  padding: 30px 0;
+  display: flex;
+}
+aside {
+  min-width: 240px;
+}
+
+section.page {
+  flex-grow: 1;
+}
+
+footer {
+  background-color: black;
+  color: gray;
+  padding: 10px 0;
+  text-align: center;
+  text-transform: uppercase;
+ }

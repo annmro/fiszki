@@ -1,0 +1,33 @@
+{
+  "name": "api",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.ts",
+  "scripts": {
+    "start": "node ./dist/app.js",
+    "build": "tsc --project ./",
+    "dev": "nodemon ./index.js localhost 3080",
+    "build:live": "nodemon"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@material-ui/icons": "^4.11.2",
+    "body-parser": "^1.19.0",
+    "express": "^4.17.1",
+    "lodash": "^4.17.21",
+    "moment": "^2.29.1",
+    "tedious": "^11.4.0"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.11",
+    "@types/lodash": "^4.14.174",
+    "@types/node": "^14.14.27",
+    "@types/tedious": "^4.0.5",
+    "@types/uuid": "^8.3.1",
+    "nodemon": "^2.0.12",
+    "ts-node": "^9.1.1",
+    "typescript": "^4.2.2"
+  }
+}
