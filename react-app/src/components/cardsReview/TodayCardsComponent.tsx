@@ -7,6 +7,11 @@ import { AppStore } from '../../models/FiszkiState';
 import CardDto from '../../modelsDto/cardDto';
 import { Paper } from '@mui/material';
 import { size } from 'lodash'
+import congratsImage from './../../styles/undraw_High_five_re_jy71.svg';
+import noCartsImage from './../../styles/undraw_happy_music_g6wc.svg';
+import cardsList from './../../styles/undraw_Checklist__re_2w7v.svg'
+import './../../styles/Image.css';
+
 
 interface TodayCardsComponentState {
     todayCards: Array<CardDto>,
@@ -79,7 +84,11 @@ class TodayCardsComponent extends Component<any, TodayCardsComponentState> {
     render() {
         return (
             <div>
-                {this.state.hasCardsToReview === null && <p>Pobieranie danych...</p>}
+                {this.state.hasCardsToReview === null &&
+                    <div>
+                        <p style={{ fontSize: "30px", textAlign: "center" }}>Pobieranie danych...</p>
+                        {/* <img className="searchingImage" src={serachingImage} alt="searchingPicture" /> */}
+                    </div>}
                 {this.state.hasCardsToReview === false &&
                     <Paper
                         elevation={20}
@@ -92,7 +101,9 @@ class TodayCardsComponent extends Component<any, TodayCardsComponentState> {
                             alignItems: "center",
                             padding: "5%",
                             textAlign: "center"
-                        }}> Nie ma dziś żadnych kart do powtórki
+                        }}> < img className="noCartsImage" src={noCartsImage} alt="noCartsPicture" /><br />
+                        Nie ma na dziś żadnych kart do powtórki
+
                     </Paper>}
                 {this.state.hasCardsToReview === true && this.state.cardToReview !== null &&
                     <Paper
@@ -106,30 +117,46 @@ class TodayCardsComponent extends Component<any, TodayCardsComponentState> {
                             alignItems: "center",
                             padding: "5%",
                             textAlign: "center"
-                        }}> Ilość kart do powtórki na dziś: {size(this.state.todayCards)}
+                        }}>
+                        <br />
+                        <br />
+                        Ilość kart do powtórki na dziś: {size(this.state.todayCards)}
                         <br />
                         <br />
                         {size(this.state.todayCards) !== 0 &&
-                            <Button
-                                variant="outlined"
-                                color="primary"
-                                onClick={this.startReviewCard}>Rozpocznij naukę
-                            </Button>}
-                        {size(this.state.todayCards) === 0 && "GRATULACJE!! Wszystkie karty na dziś zostały powtórzone "}
+                            <div>
+                                <Button
+                                    variant="outlined"
+                                    color="primary"
+                                    onClick={this.startReviewCard}>Rozpocznij naukę
+                                </Button>
+                                <br />
+                                <br />
+                                < img className="cardsList" src={cardsList} alt="cardsListPicture" />
+                            </div>
+                        }
 
+                        {size(this.state.todayCards) === 0 &&
+                            <div>
+                                "GRATULACJE!! Wszystkie karty na dziś zostały powtórzone" <br />
+                                < img className="congratsImage" src={congratsImage} alt="congratsPicture" />
+                            </div>
+                        }
                     </Paper>}
 
 
 
-                {this.state.cardToReview !== null && this.state.cardToReview !== undefined &&
+                {
+                    this.state.cardToReview !== null && this.state.cardToReview !== undefined &&
                     <CardReviewComponent
                         isVisible={this.state.isCardVisible}
                         cardToReview={this.state.cardToReview}
                         selectNewCardToReview={this.selectNewCardToReview}
                         closeDialog={this.closeDialog}
                         cardsToReview={this.state.todayCards}>
-                    </CardReviewComponent>}
-            </div>
+                    </CardReviewComponent>
+                }
+            </div >
         )
     }
 }

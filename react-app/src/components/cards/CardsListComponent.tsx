@@ -96,7 +96,7 @@ class CardsList extends Component<CardListProps, CardListState>{
         return (
             <>
                 {this.props.cardsLoc !== undefined && this.props.cardsLoc !== null &&
-                    <TableContainer style={{ maxWidth: "1000px" }} component={Paper}>
+                    <TableContainer style={{ maxWidth: "1000px", backgroundColor: "rgba(0, 0, 0, 0.04)" }} component={Paper}>
                         <Table aria-label="simple table">
                             <TableHead>
                                 <TableRow>

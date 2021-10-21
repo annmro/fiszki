@@ -10,6 +10,9 @@ import TextField from '@material-ui/core/TextField';
 import DialogTitle from '@material-ui/core/DialogTitle';
 import { Alert } from '@material-ui/lab';
 import Snackbar, { SnackbarCloseReason } from '@material-ui/core/Snackbar';
+import { Grid } from '@mui/material';
+import image from './../../styles/undraw_Sign_in_re_o58h.svg';
+import './../../styles/Image.css'
 
 interface RegisterUserComponentState {
     isRegisterSukcess: boolean,
@@ -102,41 +105,49 @@ class RegisterUserComponent extends Component<RegisterUserComponentProps, Regist
         const { isRegisterSukcess, isInputLoginShowValue, isInputPasswordShowValue } = this.state
 
         return (<div>
-            <br />
-            <br />
+            {/* <br />
+            <br /> */}
             <Dialog
                 open={this.props.isVisible}
                 onClose={this.handleOnClose}
                 aria-labelledby="form-dialog-title">
-                <DialogTitle id="form-dialog-title">Rejestracja nowego użytkownika</DialogTitle>
-                <DialogContent>
-                    <TextField
-                        error={!isInputLoginShowValue}
-                        id={isInputLoginShowValue ? "standard-basic" : "standard-error-helper-text"}
-                        label="Login"
-                        helperText={isInputLoginShowValue ? null : "Pole nie może być puste!"}
-                        type="text"
-                        onChange={this.handleLoginInputChange} />
-                    <TextField
-                        error={!isInputPasswordShowValue}
-                        id={isInputPasswordShowValue ? "standard-basic" : "standard-error-helper-text"}
-                        label="Hasło"
-                        helperText={isInputPasswordShowValue ? null : "Pole nie może być puste!"}
-                        type="password"
-                        onChange={this.handlePasswordInputChange} />
-                    <DialogActions>
-                        <Button
-                            variant="contained" color="primary"
-                            onClick={this.handleOnClose}>
-                            Anuluj
-                        </Button>
-                        <Button
-                            variant="contained" color="primary"
-                            onClick={this.handleRegisterUser}>
-                            Zarejestruj
-                        </Button>
-                    </DialogActions>
-                </DialogContent>
+                <Grid container spacing={2}>
+                    <Grid direction="column" item xs={5}>
+                        <img className="regInImage" src={image} alt="regInPicture" />
+                    </Grid>
+                    <Grid direction="column" item xs={7}>
+                        <DialogTitle id="form-dialog-title">Rejestracja użytkownika</DialogTitle>
+
+                        <DialogContent>
+                            <TextField
+                                error={!isInputLoginShowValue}
+                                id={isInputLoginShowValue ? "standard-basic" : "standard-error-helper-text"}
+                                label="Login"
+                                helperText={isInputLoginShowValue ? null : "Pole nie może być puste!"}
+                                type="text"
+                                onChange={this.handleLoginInputChange} />
+                            <TextField
+                                error={!isInputPasswordShowValue}
+                                id={isInputPasswordShowValue ? "standard-basic" : "standard-error-helper-text"}
+                                label="Hasło"
+                                helperText={isInputPasswordShowValue ? null : "Pole nie może być puste!"}
+                                type="password"
+                                onChange={this.handlePasswordInputChange} />
+                            <DialogActions>
+                                <Button
+                                    variant="contained" color="primary"
+                                    onClick={this.handleOnClose}>
+                                    Anuluj
+                                </Button>
+                                <Button
+                                    variant="contained" color="primary"
+                                    onClick={this.handleRegisterUser}>
+                                    Zarejestruj
+                                </Button>
+                            </DialogActions>
+                        </DialogContent>
+                    </Grid>
+                </Grid>
             </Dialog>
             <Snackbar anchorOrigin={{ horizontal: 'center', vertical: 'top' }} open={this.state.alertInfoOpen} autoHideDuration={3000} onClose={this.handleClose}>
                 <Alert onClose={this.handleClose} variant="filled" severity={isRegisterSukcess ? "success" : "warning"}>{isRegisterSukcess ? "Konto zostało założone, zaloguj się!" : "Rejestracja nie powiodła się, nie uzupełniono wszystkich danych lub użytkownik o takim loginie już istnieje"}

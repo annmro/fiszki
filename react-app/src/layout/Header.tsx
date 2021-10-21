@@ -45,13 +45,16 @@ class Header extends Component<HeaderProps, HeaderState> {
     render() {
         return (
             <div>
-                <AppBar position="static">
+                <AppBar style={{ backgroundColor: "#536DFE" }} position="static">
                     <Toolbar >
-                        <Typography> {this.props.stateUserLoc && `Zalogowano jako ${this.props.stateUserLoc.login}`}
+                        <Typography
+                            variant="h5"
+                            style={{ display: 'inline-block', marginLeft: '5%' }}>
+                            {this.props.stateUserLoc && `Zalogowano jako ${this.props.stateUserLoc.login}`}
                         </Typography>
                         {this.props.stateUserLoc !== null ?
-                            <Button style={{ color: 'white', margin: "auto 10px auto auto" }} variant="outlined" href="/" onClick={this.handleLogOutButton}>Wyloguj</Button> :
-                            <Button onClick={this.handleChangeVisibleUserDialog} style={{ color: 'white', margin: "auto 10px auto auto" }}
+                            <Button style={{ color: 'white', margin: "auto 10% auto auto" }} variant="outlined" href="/" onClick={this.handleLogOutButton}>Wyloguj</Button> :
+                            <Button onClick={this.handleChangeVisibleUserDialog} style={{ color: 'white', margin: "auto 10% auto auto" }}
                             >Logowanie
                             </Button>}
                     </Toolbar>

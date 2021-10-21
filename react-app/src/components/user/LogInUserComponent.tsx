@@ -9,13 +9,16 @@ import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
 import { Alert } from '@material-ui/lab';
 import Snackbar, { SnackbarCloseReason } from '@material-ui/core/Snackbar';
-import Dialog from '@material-ui/core/Dialog';
+import Dialog from '@mui/material/Dialog';
 import DialogActions from '@material-ui/core/DialogActions';
 import DialogContent from '@material-ui/core/DialogContent';
 import DialogTitle from '@material-ui/core/DialogTitle';
 import UserInfoDto from '../../modelsDto/userInfoDto';
-import { Divider } from '@mui/material';
+import { Divider, Grid } from '@mui/material';
 import Link from '@mui/material/Link';
+import image from './../../styles/undraw_Login_re_4vu2.svg';
+import './../../styles/Image.css'
+
 
 
 interface LogInUserComponentState {
@@ -130,33 +133,44 @@ class LogInUserComponent extends Component<LogInUserComponentProps, LogInUserCom
     render() {
         const { isInputLoginShowValue, isInputPasswordShowValue, isLogSukcess } = this.state
         return (<div>
-            <Dialog
 
+            <Dialog
                 open={this.props.isVisible}
                 onClose={this.handleOnClose}
-                aria-labelledby="form-dialog-title"><DialogTitle id="form-dialog-title">Logowanie użytkownika</DialogTitle>
-                <DialogContent>
-                    <TextField
-                        error={!isInputLoginShowValue}
-                        id={isInputLoginShowValue ? "standard-basic" : "standard-error-helper-text"}
-                        label="Login"
-                        helperText={isInputLoginShowValue ? null : "Pole nie może być puste!"}
-                        type="text"
-                        onChange={this.handleLoginInputChange} />
-                    <br />
-                    <br />
-                    <TextField
-                        error={!isInputPasswordShowValue}
-                        id={isInputPasswordShowValue ? "standard-basic" : "standard-error-helper-text"}
-                        label="Hasło"
-                        helperText={isInputPasswordShowValue ? null : "Pole nie może być puste!"}
-                        type="password"
-                        onChange={this.handlePasswordInputChange} />
-                </DialogContent>
-                <DialogActions>
-                    <Button variant="contained" color="primary" onClick={this.handleLogUser} >Zaloguj</Button>
-                </DialogActions>
-                <br />
+                aria-labelledby="form-dialog-title"
+            >
+                <DialogTitle id="form-dialog-title">Logowanie użytkownika
+                </DialogTitle>
+                <Grid container spacing={2}>
+                    <Grid container direction="column" item xs={6}>
+                        <img className="logInImage" src={image} alt="logInPicture" />
+                    </Grid>
+                    <Grid container direction="column" item xs={6}>
+                        <DialogContent>
+                            <TextField
+                                error={!isInputLoginShowValue}
+                                id={isInputLoginShowValue ? "standard-basic" : "standard-error-helper-text"}
+                                label="Login"
+                                helperText={isInputLoginShowValue ? null : "Pole nie może być puste!"}
+                                type="text"
+                                onChange={this.handleLoginInputChange} />
+                            <br />
+                            <br />
+                            <TextField
+                                error={!isInputPasswordShowValue}
+                                id={isInputPasswordShowValue ? "standard-basic" : "standard-error-helper-text"}
+                                label="Hasło"
+                                helperText={isInputPasswordShowValue ? null : "Pole nie może być puste!"}
+                                type="password"
+                                onChange={this.handlePasswordInputChange} />
+                        </DialogContent>
+                        <DialogActions>
+                            <Button variant="contained" color="primary" onClick={this.handleLogUser} >Zaloguj</Button>
+                        </DialogActions>
+                        <br />
+                    </Grid>
+                </Grid>
+
                 <Divider />
                 <DialogActions>
                     <Link
@@ -168,8 +182,8 @@ class LogInUserComponent extends Component<LogInUserComponentProps, LogInUserCom
                     >Nie masz konta? Zarejestruj się!</Link>
                 </DialogActions>
             </Dialog>
-            <br />
-            <br />
+            {/* <br />
+            <br /> */}
             <Snackbar anchorOrigin={{ horizontal: 'center', vertical: 'top' }} open={this.state.alertInfoOpen} autoHideDuration={3000} onClose={this.handleClose}>
                 <Alert onClose={this.handleClose} variant="filled" severity={isLogSukcess ? "success" : "warning"}>
                     {isLogSukcess ? "Udane Logowanie!" : "Logowanie nie powiodło się, nie uzupełniono wszystkich danych lub użytkownik o takim loginie już istnieje"}

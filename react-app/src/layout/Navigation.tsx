@@ -4,7 +4,8 @@ import { connect } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 import { AppStore } from '../models/FiszkiState';
 import UserDto from '../modelsDto/userDto';
-import '../styles/Navigation.css'
+import '../styles/Navigation.css';
+
 
 interface NavigationProps {
     stateUserLoc?: UserDto,
@@ -12,9 +13,9 @@ interface NavigationProps {
 class Navigation extends Component<NavigationProps, any> {
     render() {
         return (
+            // <Paper
+            //     elevation={16}>
             <div>
-
-
                 {this.props.stateUserLoc &&
                     <List sx={{
                         width: '100%',
@@ -45,6 +46,7 @@ class Navigation extends Component<NavigationProps, any> {
                     </List>
                 }
             </div>
+            // </Paper>
         );
     }
 }

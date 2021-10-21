@@ -91,7 +91,7 @@ class DecksListComponent extends Component<DecksListComponentProps, DecksListCom
         return (
             <div>
                 {this.props.decksLoc !== undefined && this.props.decksLoc !== null ? <TableContainer
-                    style={{ maxWidth: "1000px" }}
+                    style={{ maxWidth: "1000px", backgroundColor: "rgba(0, 0, 0, 0.04)" }}
 
                     component={Paper}>
                     <Table aria-label="simple table">

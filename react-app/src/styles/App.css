@@ -3,7 +3,6 @@
   color: #222;
 }
 
-
 div .app {
   display: flex;
   flex-direction: column;
@@ -13,14 +12,8 @@ div .app {
   color: #222;
 }
 
-/* header {
-  flex-basis: 20vh;
-} */
-
-
 .page {
   margin: 40px 60px;
-
 }
 
 main {
@@ -30,6 +23,8 @@ main {
 }
 aside {
   min-width: 240px;
+  margin-left: 5%;
+  margin-top: 20px;
 }
 
 section.page {
