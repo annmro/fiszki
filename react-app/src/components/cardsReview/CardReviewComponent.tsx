@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { updateCardFromTodayReview } from '../../redux/operations/operationCard'
-import moment from '../../../../api/node_modules/moment/moment';
 import Button from '@mui/material/Button';
+import moment from 'moment';
 import Dialog from '@mui/material/Dialog';
 import DialogTitle from '@material-ui/core/DialogTitle';
 import DialogContent from '@mui/material/DialogContent'
