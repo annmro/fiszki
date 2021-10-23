@@ -1,8 +1,0 @@
-{
-    "appService.zipIgnorePattern": [
-        "node_modules{,/**}",
-        ".vscode{,/**}"
-    ],
-    "appService.defaultWebAppToDeploy": "/subscriptions/bb16e7a3-ad3e-4dc7-9ac5-2f6088388586/resourceGroups/fiszki/providers/Microsoft.Web/sites/fiszki-api",
-    "appService.deploySubpath": "api"
-}
