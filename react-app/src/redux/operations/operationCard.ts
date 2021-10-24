@@ -1,8 +1,9 @@
-import { getHeadersJson } from '../../helpers/requestHelpers';
+import { getFetchDefaults, getHeadersJson } from '../../helpers/requestHelpers';
 import CardDto from '../../modelsDto/cardDto';
 import { setCards, addCard, deleteCard, saveEditCard } from '../action'
 
 const fetchCards = async (idUser: string) => {
+    const fetch = getFetchDefaults();
     const response = await fetch(`/api/cards`, {
         method: 'GET',
         headers: getHeadersJson(idUser),
@@ -21,6 +22,7 @@ export const getAllCards = (idUser: string) => {
 };
 
 const fetchAddCards = async (card: CardDto) => {
+    const fetch = getFetchDefaults();
     await fetch('/api/addCard', {
         method: 'POST',
         body: JSON.stringify(card),
@@ -36,6 +38,7 @@ export const addCardToStore = (card: CardDto) => {
 };
 
 const fetchDeleteCards = async (cardId: string, idUser: string) => {
+    const fetch = getFetchDefaults();
     await fetch(`/api/deleteCard?id=${cardId}`, {
         method: 'DELETE',
         headers: getHeadersJson(idUser),
@@ -50,6 +53,7 @@ export const deleteCardFromStore = (cardId: string, idUser: string) => {
 };
 
 const fetchEditCard = async (card: CardDto) => {
+    const fetch = getFetchDefaults();
     await fetch('/api/saveEditCard', {
         method: 'POST',
         body: JSON.stringify(card),
@@ -75,6 +79,7 @@ export const getCardsToTodayReview = async (idUser: string) => {
 
 
 export const updateCardFromTodayReview = async (card: CardDto) => {
+    const fetch = getFetchDefaults();
     await fetch('/api/saveReviewedCard', {
         method: 'PATCH',
         body: JSON.stringify(card),

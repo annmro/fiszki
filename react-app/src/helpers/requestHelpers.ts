@@ -1,4 +1,4 @@
-//import fetchDefaults from 'fetch-defaults';
+import fetchDefaults from 'fetch-defaults';
 
 
 export const getHeadersJson = (userID: string | null): HeadersInit => {
@@ -8,6 +8,6 @@ export const getHeadersJson = (userID: string | null): HeadersInit => {
     ]
 }
 
-// export const getFetchDefaults = fetchDefaults(fetch, "https://example.com", {
-//     headers: { Authorization: "Bearer 42" }
-// })
+export const getFetchDefaults = () => {
+    return fetchDefaults(fetch, "https://fiszki-api.azurewebsites.net");
+}

@@ -1,8 +1,11 @@
+import { getFetchDefaults } from '../../helpers/requestHelpers';
 import UserDto from '../../modelsDto/userDto';
 import UserInfoDto from '../../modelsDto/userInfoDto';
 import { setUser, setDecks, setCards } from '../action'
 
+
 export const logInUserApi = async (user: UserDto): Promise<UserInfoDto> => {
+    const fetch = getFetchDefaults();
     const response = await fetch('/api/logInUser', {
         method: 'POST',
         body: JSON.stringify(user),
@@ -38,6 +41,7 @@ export const logOutUser = () => {
 }
 
 export const registerNewUser = async (user: UserDto) => {
+    const fetch = getFetchDefaults();
     const response = await fetch('/api/registerUser', {
         method: 'POST',
         body: JSON.stringify(user),
