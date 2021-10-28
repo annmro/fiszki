@@ -2,7 +2,7 @@
 Application based on React technology and MySQL data base. The application allows you to add your Flashcards, and the algorithm generates repetitions every day
 
 ## LIVE 
-see you soon
+https://fiszkiui.azurewebsites.net/
 
 #### start App
 npm start
